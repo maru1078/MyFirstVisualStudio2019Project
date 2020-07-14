@@ -1,7 +1,7 @@
 #include "ComponentManager.h"
 #include "../Component/Component.h"
 
-std::forward_list<std::shared_ptr<Component>> ComponentManager::m_components;
+std::list<std::shared_ptr<Component>> ComponentManager::m_components;
 
 void ComponentManager::Update()
 {
@@ -22,7 +22,7 @@ void ComponentManager::Draw()
 std::weak_ptr<Component> ComponentManager::CreateComponent()
 {
     auto component = std::make_shared<Component>();
-    m_components.push_front(component);
+    m_components.push_back(component);
 
     return component;
 }
