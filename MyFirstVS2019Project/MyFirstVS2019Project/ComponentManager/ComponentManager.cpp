@@ -5,7 +5,7 @@ std::forward_list<std::shared_ptr<Component>> ComponentManager::m_components;
 
 void ComponentManager::Update()
 {
-    for (auto component : m_components)
+    for (const auto& component : m_components)
     {
         component->Update();
     }
@@ -13,7 +13,7 @@ void ComponentManager::Update()
 
 void ComponentManager::Draw()
 {
-    for (auto component : m_components)
+    for (const auto& component : m_components)
     {
         component->Draw();
     }
