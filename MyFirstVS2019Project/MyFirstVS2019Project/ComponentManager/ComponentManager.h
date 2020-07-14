@@ -1,7 +1,7 @@
 #ifndef COMPONENT_MANAGER_H_
 #define COMPONENT_MANAGER_H_
 
-#include <vector>
+#include <forward_list>
 #include <memory>
 
 class Component;
@@ -17,7 +17,7 @@ public:
 
 private:
 
-	static std::vector<std::shared_ptr<Component>> m_components;
+	static std::forward_list<std::shared_ptr<Component>> m_components;
 };
 
 #endif // !COMPONENT_MANAGER_H_
