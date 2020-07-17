@@ -7,7 +7,7 @@ GameObject::GameObject(const std::string& name)
 {
 }
 
-const std::string& GameObject::GetName()
+const std::string& GameObject::GetName() const
 {
 	return m_name;
 }

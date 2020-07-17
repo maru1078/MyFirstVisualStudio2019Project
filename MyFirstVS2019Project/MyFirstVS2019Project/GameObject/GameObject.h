@@ -15,7 +15,7 @@ public:
 
 public:
 
-	const std::string& GetName();
+	const std::string& GetName() const;
 
 	void AddComponent();
 
