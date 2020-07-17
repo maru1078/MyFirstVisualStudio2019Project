@@ -11,6 +11,8 @@ void GameObject::Destroy()
 	// 自分が持っているコンポーネントの死亡フラグを立てる
 	for (const auto& component : m_components)
 	{
+		if (component.expired()) continue;
+
 		component.lock()->Destroy();
 	}
 

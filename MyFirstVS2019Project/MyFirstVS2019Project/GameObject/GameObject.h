@@ -2,7 +2,7 @@
 #define GAME_OBJECT_H_
 
 #include <string>
-#include <vector>
+#include <forward_list>
 #include <memory>
 #include "../ComponentManager/ComponentManager.h"
 
@@ -27,7 +27,7 @@ public:
 private:
 
 	std::string m_name;
-	std::vector<std::weak_ptr<Component>> m_components;
+	std::forward_list<std::weak_ptr<Component>> m_components;
 	bool m_isDead{ false };
 };
 
@@ -36,7 +36,7 @@ inline void GameObject::AddComponent(Args... args)
 {
 	auto component = ComponentManager::CreateComponent<T>(args...);
 	component.lock()->SetGameObject(weak_from_this());
-	m_components.push_back(component);
+	m_components.push_front(component);
 }
 
 #endif // !GAME_OBJECT_H_
