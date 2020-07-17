@@ -10,6 +10,7 @@ class ComponentManager
 {
 public:
 
+	static void UpdateComponentList();
 	static void RemoveDeadComponent();
 
 	static void Update();
@@ -22,14 +23,15 @@ public:
 
 private:
 
+	static std::list<std::shared_ptr<Component>> m_addComponents;
 	static std::list<std::shared_ptr<Component>> m_components;
 };
 
 template<class T, class... Args>
-inline std::weak_ptr<Component> ComponentManager::CreateComponent(Args ...args)
+inline std::weak_ptr<Component> ComponentManager::CreateComponent(Args... args)
 {
 	auto component = std::make_shared<T>(args...);
-	m_components.push_back(component);
+	m_addComponents.push_back(component);
 
 	return component;
 }

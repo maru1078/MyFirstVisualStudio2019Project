@@ -1,7 +1,18 @@
 #include "ComponentManager.h"
 #include "../Component/Component.h"
 
+std::list<std::shared_ptr<Component>> ComponentManager::m_addComponents;
 std::list<std::shared_ptr<Component>> ComponentManager::m_components;
+
+void ComponentManager::UpdateComponentList()
+{
+    for (const auto& component : m_addComponents)
+    {
+        m_components.push_back(component);
+    }
+
+    m_addComponents.clear();
+}
 
 void ComponentManager::RemoveDeadComponent()
 {

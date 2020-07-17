@@ -23,6 +23,8 @@ void Game::Run()
 	{
 		std::cout << "フレーム更新" << std::endl;
 
+		ComponentManager::UpdateComponentList();
+
 		// ゲームオブジェクトや、コンポーネントの処理
 		ComponentManager::Update();
 
