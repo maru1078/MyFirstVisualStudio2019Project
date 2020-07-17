@@ -16,12 +16,16 @@ public:
 
 public:
 
+	void Destroy();
+	bool IsDead() const;
+
 	const std::weak_ptr<GameObject>& GetGameObject() const;
 	void SetGameObject(const std::weak_ptr<GameObject>& gameObject);
 
 private:
 
 	std::weak_ptr<GameObject> m_gameObject;
+	bool m_isDead{ false };
 };
 
 #endif // !COMPONENT_H_

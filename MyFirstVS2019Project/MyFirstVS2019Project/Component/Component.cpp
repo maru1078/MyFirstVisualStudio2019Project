@@ -11,6 +11,16 @@
 //	std::cout << m_gameObject.lock()->GetName() << " Draw" << std::endl;
 //}
 
+void Component::Destroy()
+{
+	m_isDead = true;
+}
+
+bool Component::IsDead() const
+{
+	return m_isDead;
+}
+
 const std::weak_ptr<GameObject>& Component::GetGameObject() const
 {
 	return m_gameObject;
