@@ -17,7 +17,7 @@ public:
 public:
 
 	const std::weak_ptr<GameObject>& GetGameObject() const;
-	void SetGameObject(std::weak_ptr<GameObject> gameObject);
+	void SetGameObject(const std::weak_ptr<GameObject>& gameObject);
 
 private:
 
