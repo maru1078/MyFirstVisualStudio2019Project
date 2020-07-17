@@ -147,6 +147,7 @@
     <ClCompile Include="GameObject\GameObject.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TestOutput\TestOutput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ComponentManager\ComponentManager.h" />
@@ -154,6 +155,7 @@
     <ClInclude Include="GameObjectManager\GameObjectManager.h" />
     <ClInclude Include="GameObject\GameObject.h" />
     <ClInclude Include="Game\Game.h" />
+    <ClInclude Include="TestOutput\TestOutput.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

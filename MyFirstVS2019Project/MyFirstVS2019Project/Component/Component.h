@@ -9,11 +9,14 @@ class Component
 {
 public:
 
-	void Update();
-	void Draw();
+	virtual ~Component() {}
+
+	virtual void Update() {}
+	virtual void Draw() {}
 
 public:
 
+	const std::weak_ptr<GameObject>& GetGameObject() const;
 	void SetGameObject(std::weak_ptr<GameObject> gameObject);
 
 private:
@@ -22,4 +25,3 @@ private:
 };
 
 #endif // !COMPONENT_H_
-

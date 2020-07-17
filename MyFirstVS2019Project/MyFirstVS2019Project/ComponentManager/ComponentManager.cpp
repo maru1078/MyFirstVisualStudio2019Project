@@ -1,5 +1,6 @@
 #include "ComponentManager.h"
 #include "../Component/Component.h"
+#include "../TestOutput/TestOutput.h"
 
 std::list<std::shared_ptr<Component>> ComponentManager::m_components;
 
@@ -21,7 +22,7 @@ void ComponentManager::Draw()
 
 std::weak_ptr<Component> ComponentManager::CreateComponent()
 {
-    auto component = std::make_shared<Component>();
+    auto component = std::make_shared<TestOutput>();
     m_components.push_back(component);
 
     return component;
