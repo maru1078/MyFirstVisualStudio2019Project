@@ -15,9 +15,9 @@ void Game::Run()
 
 	// 1体は最初に作っておく
 	auto gameObject = GameObjectManager::CreateGameObject("ObjectA");
-	gameObject.lock()->AddComponent<TestOutput>();
-	gameObject.lock()->AddComponent<DestroyObject>("ObjectB");
-	gameObject.lock()->AddComponent<CloneObject>(2);
+	gameObject.lock()->CreateComponent<TestOutput>();
+	gameObject.lock()->CreateComponent<DestroyObject>("ObjectB");
+	gameObject.lock()->CreateComponent<CloneObject>(2);
 
 	std::cout << "プログラム開始\n" << std::endl;
 
@@ -45,7 +45,7 @@ void Game::Run()
 			std::cout << "追加するオブジェクトの名前を入力-> ";
 			std::cin >> name;
 
-			GameObjectManager::CreateGameObject(name).lock()->AddComponent<TestOutput>();
+			GameObjectManager::CreateGameObject(name).lock()->CreateComponent<TestOutput>();
 		}
 
 		std::cout << std::endl;
