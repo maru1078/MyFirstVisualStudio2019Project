@@ -1,6 +1,12 @@
 #include "TestOutput.h"
 #include "../GameObject/GameObject.h"
+#include "../ComponentManager/ComponentManager.h"
 #include <iostream>
+
+std::weak_ptr<Component> TestOutput::CloneComponent()
+{
+	return ComponentManager::CreateComponent<TestOutput>();
+}
 
 void TestOutput::Update()
 {

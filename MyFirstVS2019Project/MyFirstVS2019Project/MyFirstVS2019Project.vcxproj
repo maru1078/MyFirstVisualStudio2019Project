@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CloneObject\CloneObject.cpp" />
     <ClCompile Include="ComponentManager\ComponentManager.cpp" />
     <ClCompile Include="Component\Component.cpp" />
     <ClCompile Include="DestroyObject\DestroyObject.cpp" />
@@ -151,6 +152,7 @@
     <ClCompile Include="TestOutput\TestOutput.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CloneObject\CloneObject.h" />
     <ClInclude Include="ComponentManager\ComponentManager.h" />
     <ClInclude Include="Component\Component.h" />
     <ClInclude Include="DestroyObject\DestroyObject.h" />

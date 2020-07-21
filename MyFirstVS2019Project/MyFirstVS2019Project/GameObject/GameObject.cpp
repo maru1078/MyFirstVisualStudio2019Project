@@ -6,6 +6,11 @@ GameObject::GameObject(const std::string& name)
 {
 }
 
+GameObject::GameObject(const std::weak_ptr<GameObject>& other)
+	: m_name{ other.lock()->m_name }
+{
+}
+
 void GameObject::Destroy()
 {
 	// 自分が持っているコンポーネントの死亡フラグを立てる
@@ -28,4 +33,15 @@ bool GameObject::IsDead() const
 const std::string& GameObject::GetName() const
 {
 	return m_name;
+}
+
+void GameObject::AddComponent(const std::weak_ptr<Component>& component)
+{
+	component.lock()->SetGameObject(weak_from_this());
+	m_components.push_front(component);
+}
+
+const std::forward_list<std::weak_ptr<Component>>& GameObject::GetComponentAll() const
+{
+	return m_components;
 }

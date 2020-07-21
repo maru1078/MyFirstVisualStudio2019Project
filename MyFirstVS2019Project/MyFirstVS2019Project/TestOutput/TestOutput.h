@@ -7,6 +7,7 @@ class TestOutput : public Component
 {
 public:
 
+	virtual std::weak_ptr<Component> CloneComponent() override;
 	virtual void Update() override;
 	virtual void Draw() override;
 };

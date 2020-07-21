@@ -19,6 +19,8 @@ public:
 
 	static std::weak_ptr<GameObject> CreateGameObject(const std::string& name);
 
+	static std::weak_ptr<GameObject> CloneGameObject(const std::weak_ptr<GameObject>& gameObject);
+
 private:
 
 	static std::forward_list<std::shared_ptr<GameObject>> m_addGameObjects;

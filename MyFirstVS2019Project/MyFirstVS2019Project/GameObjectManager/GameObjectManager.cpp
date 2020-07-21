@@ -44,3 +44,11 @@ std::weak_ptr<GameObject> GameObjectManager::CreateGameObject(const std::string&
 
 	return gameObject;
 }
+
+std::weak_ptr<GameObject> GameObjectManager::CloneGameObject(const std::weak_ptr<GameObject>& gameObject)
+{
+	auto clone = std::make_shared<GameObject>(gameObject);
+	m_addGameObjects.push_front(clone);
+
+	return clone;
+}

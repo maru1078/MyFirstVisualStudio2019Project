@@ -13,6 +13,7 @@ class GameObject : public std::enable_shared_from_this<GameObject>
 public:
 
 	GameObject(const std::string& name);
+	GameObject(const std::weak_ptr<GameObject>& other);
 
 public:
 
@@ -23,6 +24,9 @@ public:
 
 	template<class T, class... Args>
 	void AddComponent(Args... args);
+
+	void AddComponent(const std::weak_ptr<Component>& component);
+	const std::forward_list<std::weak_ptr<Component>>& GetComponentAll() const;
 
 private:
 

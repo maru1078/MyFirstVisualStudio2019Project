@@ -11,6 +11,7 @@ public:
 
 	virtual ~Component() {}
 
+	virtual std::weak_ptr<Component> CloneComponent() = 0;
 	virtual void Update() {}
 	virtual void Draw() {}
 

@@ -4,6 +4,7 @@
 #include "../GameObjectManager/GameObjectManager.h"
 #include "../TestOutput/TestOutput.h"
 #include "../DestroyObject/DestroyObject.h"
+#include "../CloneObject/CloneObject.h"
 
 #include <iostream>
 #include <memory>
@@ -16,6 +17,7 @@ void Game::Run()
 	auto gameObject = GameObjectManager::CreateGameObject("ObjectA");
 	gameObject.lock()->AddComponent<TestOutput>();
 	gameObject.lock()->AddComponent<DestroyObject>("ObjectB");
+	gameObject.lock()->AddComponent<CloneObject>(2);
 
 	std::cout << "プログラム開始\n" << std::endl;
 
