@@ -3,7 +3,7 @@
 #include "../ComponentManager/ComponentManager.h"
 #include <iostream>
 
-std::weak_ptr<Component> TestOutput::CloneComponent()
+std::weak_ptr<Component> TestOutput::CloneComponent() const
 {
 	return ComponentManager::CreateComponent<TestOutput>();
 }

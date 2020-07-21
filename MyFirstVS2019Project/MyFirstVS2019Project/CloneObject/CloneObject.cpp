@@ -9,15 +9,20 @@ CloneObject::CloneObject(int cloneNum)
 {
 }
 
-std::weak_ptr<Component> CloneObject::CloneComponent()
+CloneObject::CloneObject(const std::weak_ptr<const CloneObject>& other)
+	: m_cloneNum{ other.lock()->m_cloneNum }
+	, m_curCloneCount{ other.lock()->m_curCloneCount }
 {
-	// コピーの残り回数を渡す
-	return ComponentManager::CreateComponent<CloneObject>(m_cloneNum - m_curCloneCount);
+}
+
+std::weak_ptr<Component> CloneObject::CloneComponent() const
+{
+	return ComponentManager::CreateComponent<CloneObject>(std::dynamic_pointer_cast<const CloneObject>(shared_from_this()));
 }
 
 void CloneObject::Update()
 {
-	// コピー回数が残っていればクローン
+	// コピー回数が残っていなければ即リターン
 	if (m_cloneNum - m_curCloneCount <= 0) return;
 
 	// 先に回数をカウントする

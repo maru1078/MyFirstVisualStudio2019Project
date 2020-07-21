@@ -8,7 +8,7 @@ DestroyObject::DestroyObject(const std::string& objectName)
 {
 }
 
-std::weak_ptr<Component> DestroyObject::CloneComponent()
+std::weak_ptr<Component> DestroyObject::CloneComponent() const
 {
 	return ComponentManager::CreateComponent<DestroyObject>(m_objectName);
 }

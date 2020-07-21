@@ -5,13 +5,13 @@
 
 class GameObject;
 
-class Component
+class Component : public std::enable_shared_from_this<Component>
 {
 public:
 
 	virtual ~Component() {}
 
-	virtual std::weak_ptr<Component> CloneComponent() = 0;
+	virtual std::weak_ptr<Component> CloneComponent() const = 0;
 	virtual void Update() {}
 	virtual void Draw() {}
 

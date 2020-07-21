@@ -12,7 +12,7 @@ public:
 
 public:
 
-	virtual std::weak_ptr<Component> CloneComponent() override;
+	virtual std::weak_ptr<Component> CloneComponent() const override;
 	virtual void Update() override;
 
 private:
