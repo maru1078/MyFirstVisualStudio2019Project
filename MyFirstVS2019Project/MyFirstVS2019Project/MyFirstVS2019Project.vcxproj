@@ -145,7 +145,7 @@
     <ClCompile Include="ComponentManager\ComponentManager.cpp" />
     <ClCompile Include="Component\Component.cpp" />
     <ClCompile Include="DestroyObject\DestroyObject.cpp" />
-    <ClCompile Include="GameObjectGenerator\GameObjectGenerator.cpp" />
+    <ClCompile Include="GameObjectCreator\GameObjectCreator.cpp" />
     <ClCompile Include="GameObjectManager\GameObjectManager.cpp" />
     <ClCompile Include="GameObject\GameObject.cpp" />
     <ClCompile Include="GameTerminator\GameTerminator.cpp" />
@@ -158,7 +158,7 @@
     <ClInclude Include="ComponentManager\ComponentManager.h" />
     <ClInclude Include="Component\Component.h" />
     <ClInclude Include="DestroyObject\DestroyObject.h" />
-    <ClInclude Include="GameObjectGenerator\GameObjectGenerator.h" />
+    <ClInclude Include="GameObjectCreator\GameObjectCreator.h" />
     <ClInclude Include="GameObjectManager\GameObjectManager.h" />
     <ClInclude Include="GameObject\GameObject.h" />
     <ClInclude Include="GameTerminator\GameTerminator.h" />

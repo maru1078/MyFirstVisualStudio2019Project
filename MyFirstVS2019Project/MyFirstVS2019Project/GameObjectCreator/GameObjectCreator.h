@@ -4,12 +4,12 @@
 #include <string>
 #include "../Component/Component.h"
 
-class GameObjectGenerator : public Component
+class GameObjectCreator : public Component
 {
 public:
 
-	GameObjectGenerator(const std::string& inputStr, char splitter);
-	GameObjectGenerator(const std::weak_ptr<const GameObjectGenerator>& other);
+	GameObjectCreator(const std::string& inputStr, char splitter);
+	GameObjectCreator(const std::weak_ptr<const GameObjectCreator>& other);
 
 	virtual std::weak_ptr<Component> CloneComponent() const override;
 	virtual void Input(const std::string& inputStr) override;

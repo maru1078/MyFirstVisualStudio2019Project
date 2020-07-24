@@ -1,29 +1,29 @@
-#include "GameObjectGenerator.h"
+#include "GameObjectCreator.h"
 
 #include "../ComponentManager/ComponentManager.h"
 #include "../GameObjectManager/GameObjectManager.h"
 #include "../GameObject/GameObject.h"
 #include "../TestOutput/TestOutput.h"
 
-GameObjectGenerator::GameObjectGenerator(const std::string& inputStr, char splitter)
+GameObjectCreator::GameObjectCreator(const std::string& inputStr, char splitter)
 	: m_generateStr{ inputStr }
 	, m_splitter{ splitter }
 {
 }
 
-GameObjectGenerator::GameObjectGenerator(const std::weak_ptr<const GameObjectGenerator>& other)
+GameObjectCreator::GameObjectCreator(const std::weak_ptr<const GameObjectCreator>& other)
 	: m_generateStr{ other.lock()->m_generateStr }
 	, m_splitter{ other.lock()->m_splitter }
 {
 }
 
-std::weak_ptr<Component> GameObjectGenerator::CloneComponent() const
+std::weak_ptr<Component> GameObjectCreator::CloneComponent() const
 {
-	return ComponentManager::CreateComponent<GameObjectGenerator>(
-		std::dynamic_pointer_cast<const GameObjectGenerator>(shared_from_this()));
+	return ComponentManager::CreateComponent<GameObjectCreator>(
+		std::dynamic_pointer_cast<const GameObjectCreator>(shared_from_this()));
 }
 
-void GameObjectGenerator::Input(const std::string& inputStr)
+void GameObjectCreator::Input(const std::string& inputStr)
 {
 	int idx = inputStr.find(m_splitter);
 

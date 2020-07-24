@@ -45,7 +45,7 @@
     <ClCompile Include="GameTerminator\GameTerminator.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="GameObjectGenerator\GameObjectGenerator.cpp">
+    <ClCompile Include="GameObjectCreator\GameObjectCreator.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -77,7 +77,7 @@
     <ClInclude Include="GameTerminator\GameTerminator.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="GameObjectGenerator\GameObjectGenerator.h">
+    <ClInclude Include="GameObjectCreator\GameObjectCreator.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
