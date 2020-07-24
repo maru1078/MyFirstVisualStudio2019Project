@@ -3,6 +3,7 @@
 
 #include <list>
 #include <memory>
+#include <string>
 
 class Component;
 
@@ -15,6 +16,8 @@ public:
 
 	static void Update();
 	static void Draw();
+
+	static void SendInputStr(const std::string& inputStr);
 
 public:
 

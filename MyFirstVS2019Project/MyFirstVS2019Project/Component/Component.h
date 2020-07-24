@@ -2,6 +2,7 @@
 #define COMPONENT_H_
 
 #include <memory>
+#include <string>
 
 class GameObject;
 
@@ -12,6 +13,7 @@ public:
 	virtual ~Component() {}
 
 	virtual std::weak_ptr<Component> CloneComponent() const = 0;
+	virtual void Input(const std::string& inputStr) {}
 	virtual void Update() {}
 	virtual void Draw() {}
 

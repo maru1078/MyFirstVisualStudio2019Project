@@ -43,3 +43,11 @@ void ComponentManager::Draw()
         component->Draw();
     }
 }
+
+void ComponentManager::SendInputStr(const std::string& inputStr)
+{
+    for (const auto& component : m_components)
+    {
+        component->Input(inputStr);
+    }
+}
