@@ -8,7 +8,7 @@ class DestroyObject : public Component
 {
 public:
 
-	DestroyObject(const std::string& objectName);
+	explicit DestroyObject(const std::string& objectName);
 
 public:
 

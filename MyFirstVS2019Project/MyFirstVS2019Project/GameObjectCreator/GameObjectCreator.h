@@ -9,7 +9,7 @@ class GameObjectCreator : public Component
 public:
 
 	GameObjectCreator(const std::string& inputStr, char splitter);
-	GameObjectCreator(const std::weak_ptr<const GameObjectCreator>& other);
+	explicit GameObjectCreator(const std::weak_ptr<const GameObjectCreator>& other);
 
 	virtual std::weak_ptr<Component> CloneComponent() const override;
 	virtual void Input(const std::string& inputStr) override;

@@ -7,8 +7,8 @@ class CloneObject : public Component
 {
 public:
 
-	CloneObject(int cloneNum);
-	CloneObject(const std::weak_ptr<const CloneObject>& other);
+	explicit CloneObject(int cloneNum);
+	explicit CloneObject(const std::weak_ptr<const CloneObject>& other);
 
 	virtual std::weak_ptr<Component> CloneComponent() const override;
 	virtual void Update() override;

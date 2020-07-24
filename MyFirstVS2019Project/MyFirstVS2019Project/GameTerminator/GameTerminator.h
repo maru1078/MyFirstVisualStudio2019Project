@@ -7,7 +7,7 @@ class GameTerminator : public Component
 {
 public:
 
-	GameTerminator(const std::string& inputStr);
+	explicit GameTerminator(const std::string& inputStr);
 
 	virtual std::weak_ptr<Component> CloneComponent() const override;
 	virtual void Input(const std::string& inputStr) override;
