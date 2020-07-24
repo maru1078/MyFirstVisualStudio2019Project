@@ -6,9 +6,9 @@
 #include "../DestroyObject/DestroyObject.h"
 #include "../CloneObject/CloneObject.h"
 #include "../GameTerminator/GameTerminator.h"
+#include "../GameObjectGenerator/GameObjectGenerator.h"
 
 #include <iostream>
-#include <memory>
 
 bool Game::m_isExit{ false };
 
@@ -28,6 +28,7 @@ void Game::Run()
 	{
 		auto gameObject = GameObjectManager::CreateGameObject("GameController");
 		gameObject.lock()->CreateComponent<GameTerminator>("end");
+		gameObject.lock()->CreateComponent<GameObjectGenerator>("add", '_');
 	}
 
 	std::cout << "プログラム開始\n" << std::endl;
