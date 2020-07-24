@@ -163,6 +163,7 @@
     <ClInclude Include="GameObject\GameObject.h" />
     <ClInclude Include="GameTerminator\GameTerminator.h" />
     <ClInclude Include="Game\Game.h" />
+    <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="TestOutput\TestOutput.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
