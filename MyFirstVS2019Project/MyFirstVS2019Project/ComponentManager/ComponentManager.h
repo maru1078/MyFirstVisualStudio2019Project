@@ -22,7 +22,7 @@ public:
 public:
 
 	template<class T, class... Args>
-	static std::weak_ptr<Component> CreateComponent(Args... args);
+	static std::weak_ptr<Component> CreateComponent(const Args&... args);
 
 private:
 
@@ -31,7 +31,7 @@ private:
 };
 
 template<class T, class... Args>
-inline std::weak_ptr<Component> ComponentManager::CreateComponent(Args... args)
+inline std::weak_ptr<Component> ComponentManager::CreateComponent(const Args&... args)
 {
 	auto component = std::make_shared<T>(args...);
 	m_addComponents.push_back(component);

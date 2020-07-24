@@ -23,7 +23,7 @@ public:
 	const std::string& GetName() const;
 
 	template<class T, class... Args>
-	void CreateComponent(Args... args);
+	void CreateComponent(const Args&... args);
 
 	void AddComponent(const std::weak_ptr<Component>& component);
 
@@ -37,7 +37,7 @@ private:
 };
 
 template<class T, class... Args>
-inline void GameObject::CreateComponent(Args... args)
+inline void GameObject::CreateComponent(const Args&... args)
 {
 	auto component = ComponentManager::CreateComponent<T>(args...);
 	component.lock()->SetGameObject(weak_from_this());
