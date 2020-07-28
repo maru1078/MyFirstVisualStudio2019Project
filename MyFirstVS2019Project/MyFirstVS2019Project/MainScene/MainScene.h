@@ -8,8 +8,8 @@ class MainScene : public Scene
 {
 public:
 
-	virtual void Start() override {}
-	virtual void End() override {}
+	virtual void Start() override;
+	virtual void End() override;
 };
 
 #endif // !MAIN_SCENE_H_

@@ -151,6 +151,7 @@
     <ClCompile Include="GameTerminator\GameTerminator.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainScene\MainScene.cpp" />
     <ClCompile Include="SceneChanger\SceneChanger.cpp" />
     <ClCompile Include="SceneManager\SceneManager.cpp" />
     <ClCompile Include="TestOutput\TestOutput.cpp" />

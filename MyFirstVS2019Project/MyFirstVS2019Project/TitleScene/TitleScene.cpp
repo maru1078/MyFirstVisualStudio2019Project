@@ -10,7 +10,7 @@ void TitleScene::Start()
 	outputer.lock()->CreateComponent<TitleSceneOutputer>();
 
 	auto sceneChanger = GameObjectManager::CreateGameObject("SceneChanger");
-	sceneChanger.lock()->CreateComponent<SceneChanger>("Start");
+	sceneChanger.lock()->CreateComponent<SceneChanger>("start");
 }
 
 void TitleScene::End()
