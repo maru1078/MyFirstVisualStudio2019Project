@@ -151,6 +151,7 @@
     <ClCompile Include="GameTerminator\GameTerminator.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SceneManager\SceneManager.cpp" />
     <ClCompile Include="TestOutput\TestOutput.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +164,7 @@
     <ClInclude Include="GameObject\GameObject.h" />
     <ClInclude Include="GameTerminator\GameTerminator.h" />
     <ClInclude Include="Game\Game.h" />
+    <ClInclude Include="SceneManager\SceneManager.h" />
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="TestOutput\TestOutput.h" />
   </ItemGroup>
