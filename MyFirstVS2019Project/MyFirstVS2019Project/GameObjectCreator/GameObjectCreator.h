@@ -16,7 +16,7 @@ public:
 
 private:
 
-	std::string m_generateStr;
+	std::string m_createStr;
 	char m_splitter;
 };
 

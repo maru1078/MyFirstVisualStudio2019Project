@@ -6,13 +6,13 @@
 #include "../TestOutput/TestOutput.h"
 
 GameObjectCreator::GameObjectCreator(const std::string& inputStr, char splitter)
-	: m_generateStr{ inputStr }
+	: m_createStr{ inputStr }
 	, m_splitter{ splitter }
 {
 }
 
 GameObjectCreator::GameObjectCreator(const std::weak_ptr<const GameObjectCreator>& other)
-	: m_generateStr{ other.lock()->m_generateStr }
+	: m_createStr{ other.lock()->m_createStr }
 	, m_splitter{ other.lock()->m_splitter }
 {
 }
@@ -31,7 +31,7 @@ void GameObjectCreator::Input(const std::string& inputStr)
 	if (idx == std::string::npos) return;
 
 	std::string command = inputStr.substr(0, idx);
-	if (command == m_generateStr)
+	if (command == m_createStr)
 	{
 		std::string objectName = inputStr.substr(idx + 1, inputStr.length());
 		auto gameObject = GameObjectManager::CreateGameObject(objectName);
