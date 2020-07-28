@@ -45,3 +45,11 @@ const std::forward_list<std::weak_ptr<Component>>& GameObject::GetComponentAll()
 {
 	return m_components;
 }
+
+void GameObject::SendMessage(const std::string& message)
+{
+	for (const auto& component : m_components)
+	{
+		component.lock()->HandleMessage(message);
+	}
+}

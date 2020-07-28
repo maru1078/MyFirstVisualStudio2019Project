@@ -11,6 +11,7 @@ class GameObjectManager
 {
 public:
 
+	static std::weak_ptr<GameObject> FindGameObject(const std::string& name);
 	static std::forward_list<std::weak_ptr<GameObject>> FindGameObjects(const std::string& name);
 
 	static void UpdateGameObjectList();
@@ -20,6 +21,9 @@ public:
 	static std::weak_ptr<GameObject> CreateGameObject(const std::string& name);
 
 	static std::weak_ptr<GameObject> CloneGameObject(const std::weak_ptr<GameObject>& gameObject);
+
+	// 全てのゲームオブジェクトにメッセージを送信する
+	static void SendMessage(const std::string& message);
 
 private:
 

@@ -151,8 +151,11 @@
     <ClCompile Include="GameTerminator\GameTerminator.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SceneChanger\SceneChanger.cpp" />
     <ClCompile Include="SceneManager\SceneManager.cpp" />
     <ClCompile Include="TestOutput\TestOutput.cpp" />
+    <ClCompile Include="TitleSceneOutputer\TitleSceneOutputer.cpp" />
+    <ClCompile Include="TitleScene\TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CloneObject\CloneObject.h" />
@@ -164,9 +167,13 @@
     <ClInclude Include="GameObject\GameObject.h" />
     <ClInclude Include="GameTerminator\GameTerminator.h" />
     <ClInclude Include="Game\Game.h" />
+    <ClInclude Include="MainScene\MainScene.h" />
+    <ClInclude Include="SceneChanger\SceneChanger.h" />
     <ClInclude Include="SceneManager\SceneManager.h" />
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="TestOutput\TestOutput.h" />
+    <ClInclude Include="TitleSceneOutputer\TitleSceneOutputer.h" />
+    <ClInclude Include="TitleScene\TitleScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

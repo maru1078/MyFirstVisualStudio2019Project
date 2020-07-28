@@ -29,6 +29,8 @@ public:
 
 	const std::forward_list<std::weak_ptr<Component>>& GetComponentAll() const;
 
+	void SendMessage(const std::string& message);
+
 private:
 
 	std::string m_name;

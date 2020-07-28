@@ -16,6 +16,7 @@ public:
 	virtual void Input(const std::string& inputStr) {}
 	virtual void Update() {}
 	virtual void Draw() {}
+	virtual void HandleMessage(const std::string& message) {}
 
 public:
 
