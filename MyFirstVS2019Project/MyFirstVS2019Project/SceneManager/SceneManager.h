@@ -9,7 +9,7 @@ class SceneManager
 public:
 
 	template<class T, class... Args>
-	static void ChangeScene(const Args&... args);
+	static void CreateCurrentScene(const Args&... args);
 
 private:
 
@@ -17,9 +17,9 @@ private:
 };
 
 template<class T, class ...Args>
-inline void SceneManager::ChangeScene(const Args& ...args)
+inline void SceneManager::CreateCurrentScene(const Args& ...args)
 {
-	if (m_curScene)
+	if (m_curScene != nullptr)
 	{
 		// ƒV[ƒ“I—¹ˆ—
 		m_curScene->End();
