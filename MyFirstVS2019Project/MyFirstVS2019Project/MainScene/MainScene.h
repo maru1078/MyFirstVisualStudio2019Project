@@ -3,7 +3,7 @@
 
 #include "../Scene/Scene.h"
 
-// メインシーン（今は形だけ。中身の実装なし）
+// メインシーン
 class MainScene : public Scene
 {
 public:
