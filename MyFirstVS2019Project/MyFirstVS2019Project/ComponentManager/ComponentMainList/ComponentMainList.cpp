@@ -25,7 +25,7 @@ void ComponentMainList::ExecuteUpdate() const
     }
 }
 
-void ComponentMainList::ExecuteInput(const std::string& inputStr)
+void ComponentMainList::ExecuteInput(const std::string& inputStr) const
 {
     for (const auto& component : m_components)
     {
