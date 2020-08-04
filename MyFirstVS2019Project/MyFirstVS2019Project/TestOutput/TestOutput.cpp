@@ -3,9 +3,14 @@
 #include "../ComponentManager/ComponentManager.h"
 #include <iostream>
 
+TestOutput::TestOutput(float drawPriority)
+	: Component{ drawPriority }
+{
+}
+
 std::weak_ptr<Component> TestOutput::CloneComponent() const
 {
-	return ComponentManager::CreateComponent<TestOutput>();
+	return ComponentManager::CreateComponent<TestOutput>(GetDrawPriority());
 }
 
 void TestOutput::Update()

@@ -12,7 +12,7 @@ void MainScene::Start()
 	// 1‘Ì‚ÍÅ‰‚Éì‚Á‚Ä‚¨‚­
 	{
 		auto gameObject = GameObjectManager::CreateGameObject("ObjectA");
-		gameObject.lock()->CreateComponent<TestOutput>();
+		gameObject.lock()->CreateComponent<TestOutput>(1.0f);
 		gameObject.lock()->CreateComponent<DestroyObject>("ObjectB");
 		gameObject.lock()->CreateComponent<CloneObject>(2);
 	}

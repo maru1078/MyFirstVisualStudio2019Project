@@ -1,12 +1,6 @@
 #include "Game.h"
-#include "../GameObject/GameObject.h"
 #include "../ComponentManager/ComponentManager.h"
 #include "../GameObjectManager/GameObjectManager.h"
-#include "../TestOutput/TestOutput.h"
-#include "../DestroyObject/DestroyObject.h"
-#include "../CloneObject/CloneObject.h"
-#include "../GameTerminator/GameTerminator.h"
-#include "../GameObjectCreator/GameObjectCreator.h"
 #include "../SceneManager/SceneManager.h"
 #include "../TitleScene/TitleScene.h"
 

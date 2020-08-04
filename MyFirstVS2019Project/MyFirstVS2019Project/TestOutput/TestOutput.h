@@ -7,6 +7,8 @@ class TestOutput : public Component
 {
 public:
 
+	explicit TestOutput(float drawPriority);
+
 	virtual std::weak_ptr<Component> CloneComponent() const override;
 	virtual void Update() override;
 	virtual void Draw() override;

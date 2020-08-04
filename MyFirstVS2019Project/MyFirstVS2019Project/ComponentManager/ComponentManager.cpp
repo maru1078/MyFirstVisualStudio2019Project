@@ -3,12 +3,14 @@
 
 std::list<std::shared_ptr<Component>> ComponentManager::m_addComponents;
 std::list<std::shared_ptr<Component>> ComponentManager::m_components;
+std::multimap<float, std::shared_ptr<Component>> ComponentManager::m_drawMap;
 
 void ComponentManager::UpdateComponentList()
 {
     for (const auto& component : m_addComponents)
     {
         m_components.push_back(component);
+        m_drawMap.emplace(component->GetDrawPriority(), component);
     }
 
     m_addComponents.clear();
@@ -20,6 +22,18 @@ void ComponentManager::RemoveDeadComponent()
         {
             return component->IsDead();
         });
+
+    for (auto it = m_drawMap.begin(); it != m_drawMap.end();)
+    {
+        if ((*it).second->IsDead())
+        {
+            it = m_drawMap.erase(it);
+        }
+        else
+        {
+            ++it;
+        }
+    }
 }
 
 void ComponentManager::Update()
@@ -35,12 +49,20 @@ void ComponentManager::Update()
 
 void ComponentManager::Draw()
 {
-    for (const auto& component : m_components)
+    //for (const auto& component : m_components)
+    //{
+    //    // 追加されたうえで削除されてるかどうかの確認のため、今はコメント化。
+    //    //if (component->IsDead()) continue;
+
+    //    component->Draw();
+    //}
+
+    for (const auto& pair : m_drawMap)
     {
         // 追加されたうえで削除されてるかどうかの確認のため、今はコメント化。
         //if (component->IsDead()) continue;
 
-        component->Draw();
+        pair.second->Draw();
     }
 }
 

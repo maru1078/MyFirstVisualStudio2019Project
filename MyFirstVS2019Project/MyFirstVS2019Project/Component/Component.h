@@ -10,6 +10,7 @@ class Component : public std::enable_shared_from_this<Component>
 {
 public:
 
+	explicit Component(float drawPriority = 0.0f);
 	virtual ~Component() {}
 
 	virtual std::weak_ptr<Component> CloneComponent() const = 0;
@@ -26,9 +27,12 @@ public:
 	const std::weak_ptr<GameObject>& GetGameObject() const;
 	void SetGameObject(const std::weak_ptr<GameObject>& gameObject);
 
+	float GetDrawPriority() const;
+
 private:
 
 	std::weak_ptr<GameObject> m_gameObject;
+	float m_drawPriority{ 0.0f };
 	bool m_isDead{ false };
 };
 

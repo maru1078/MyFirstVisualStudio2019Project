@@ -37,6 +37,8 @@ void GameObjectCreator::Input(const std::string& inputStr)
 		auto gameObject = GameObjectManager::CreateGameObject(objectName);
 
 		// ’Ç‰Á‚³‚ê‚½‚©‚Ç‚¤‚©Šm”F‚Ì‚½‚ßuTestOutputv‚ð‚Â‚¯‚Ä‚¨‚­
-		gameObject.lock()->CreateComponent<TestOutput>();
+		// •`‰æ—Dæ“x‚ÌÝ’è‚ª‚Å‚«‚Ä‚¢‚é‚©‚ÌŠm”F‚Ì‚½‚ßA—Dæ“x‚ð-1.0f‚ÅŒÅ’è‚É‚µ‚Ä‚¨‚­
+		// ObjectA‚æ‚è‚àæ‚É•`‰æŠÖ”‚ªŒÄ‚Î‚ê‚éiObjectA‚Ì•`‰æ—Dæ“x‚Í1.0fj
+		gameObject.lock()->CreateComponent<TestOutput>(-1.0f);
 	}
 }
