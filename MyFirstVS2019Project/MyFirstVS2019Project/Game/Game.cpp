@@ -4,6 +4,8 @@
 #include "../SceneManager/SceneManager.h"
 #include "../TitleScene/TitleScene.h"
 
+#include "../TestOutput/TestOutput.h"
+
 #include <iostream>
 
 bool Game::m_isExit{ false };
@@ -13,6 +15,8 @@ void Game::Run()
 	std::string input = "";
 
 	SceneManager::CreateCurrentScene<TitleScene>();
+
+	ComponentManager::AddUpdatePriority<TestOutput>(-1.0f);
 
 	std::cout << "プログラム開始\n" << std::endl;
 

@@ -145,6 +145,7 @@
     <ClCompile Include="ComponentManager\ComponentDrawMap\ComponentDrawMap.cpp" />
     <ClCompile Include="ComponentManager\ComponentMainList\ComponentMainList.cpp" />
     <ClCompile Include="ComponentManager\ComponentManager.cpp" />
+    <ClCompile Include="ComponentManager\ComponentUpdateMap\ComponentUpdateMap.cpp" />
     <ClCompile Include="Component\Component.cpp" />
     <ClCompile Include="DestroyObject\DestroyObject.cpp" />
     <ClCompile Include="GameObjectCreator\GameObjectCreator.cpp" />
@@ -165,6 +166,8 @@
     <ClInclude Include="ComponentManager\ComponentDrawMap\ComponentDrawMap.h" />
     <ClInclude Include="ComponentManager\ComponentMainList\ComponentMainList.h" />
     <ClInclude Include="ComponentManager\ComponentManager.h" />
+    <ClInclude Include="ComponentManager\ComponentUpdateMap\ComponentUpdateMap.h" />
+    <ClInclude Include="ComponentManager\UpdatePriorityList\UpdatePriorityList.h" />
     <ClInclude Include="Component\Component.h" />
     <ClInclude Include="DestroyObject\DestroyObject.h" />
     <ClInclude Include="GameObjectCreator\GameObjectCreator.h" />

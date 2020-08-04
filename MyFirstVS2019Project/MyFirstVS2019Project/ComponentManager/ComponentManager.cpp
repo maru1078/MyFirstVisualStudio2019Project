@@ -1,16 +1,19 @@
 #include "ComponentManager.h"
 #include "../Component/Component.h"
 
-std::list<std::shared_ptr<Component>> ComponentManager::m_addComponents;
+std::unordered_multimap<float, std::shared_ptr<Component>> ComponentManager::m_addComponents;
+UpdatePriorityList ComponentManager::m_updatePriorityList;
+ComponentUpdateMap ComponentManager::m_updateMap;
 ComponentMainList ComponentManager::m_mainList;
 ComponentDrawMap ComponentManager::m_drawMap;
 
 void ComponentManager::UpdateComponentList()
 {
-    for (const auto& component : m_addComponents)
+    for (const auto& pair : m_addComponents)
     {
-        m_mainList.Add(component);
-        m_drawMap.Add(component);
+        m_mainList.Add(pair.second);
+        m_updateMap.Add(pair.first, pair.second);
+        m_drawMap.Add(pair.second);
     }
 
     m_addComponents.clear();
@@ -19,12 +22,13 @@ void ComponentManager::UpdateComponentList()
 void ComponentManager::RemoveDeadComponent()
 {
     m_mainList.RemoveDeadComponent();
+    m_updateMap.RemoveDeadComponent();
     m_drawMap.RemoveDeadComponent();
 }
 
 void ComponentManager::Update()
 {
-    m_mainList.ExecuteUpdate();
+    m_updateMap.ExecuteUpdate();
 }
 
 void ComponentManager::Draw()
