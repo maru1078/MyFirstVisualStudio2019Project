@@ -6,22 +6,22 @@ void ComponentDrawMap::ExecuteDraw() const
     for (const auto& pair : m_drawMap)
     {
         // 追加されたうえで削除されてるかどうかの確認のため、今はコメント化。
-        //if (pair.second->IsDead()) continue;
+        //if (pair.second.expired()) continue;
 
-        pair.second->Draw();
+        pair.second.lock()->Draw();
     }
 }
 
-void ComponentDrawMap::Add(const std::shared_ptr<Component>& component)
+void ComponentDrawMap::Add(const std::weak_ptr<Component>& component)
 {
-	m_drawMap.emplace(component->GetDrawPriority(), component);
+	m_drawMap.emplace(component.lock()->GetDrawPriority(), component);
 }
 
 void ComponentDrawMap::RemoveDeadComponent()
 {
     for (auto it = m_drawMap.begin(); it != m_drawMap.end();)
     {
-        if ((*it).second->IsDead())
+        if ((*it).second.expired())
         {
             it = m_drawMap.erase(it);
         }

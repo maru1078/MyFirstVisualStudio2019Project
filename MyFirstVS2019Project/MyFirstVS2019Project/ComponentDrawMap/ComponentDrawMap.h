@@ -14,12 +14,12 @@ public:
 
 public:
 
-	void Add(const std::shared_ptr<Component>& component);
+	void Add(const std::weak_ptr<Component>& component);
 	void RemoveDeadComponent();
 
 private:
 
-	std::multimap<float, std::shared_ptr<Component>> m_drawMap;
+	std::multimap<float, std::weak_ptr<Component>> m_drawMap;
 };
 
 #endif // !COMPONENT_DRAW_LIST_H_
