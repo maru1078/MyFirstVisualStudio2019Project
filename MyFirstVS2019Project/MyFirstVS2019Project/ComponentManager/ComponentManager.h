@@ -5,6 +5,7 @@
 #include <memory>
 #include <string>
 #include <map>
+#include "../ComponentDrawMap/ComponentDrawMap.h"
 
 class Component;
 
@@ -31,7 +32,7 @@ private:
 	static std::list<std::shared_ptr<Component>> m_components;
 
 	// —Dæ“x‚ğ‚Â‚¯‚Ä•`‰æŠÖ”‚ğŒÄ‚Ô‚½‚ß‚Ì‚à‚Ì
-	static std::multimap<float, std::shared_ptr<Component>> m_drawMap;
+	static ComponentDrawMap m_drawMap;
 };
 
 template<class T, class... Args>
