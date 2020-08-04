@@ -1,5 +1,5 @@
 #include "ComponentDrawMap.h"
-#include "../Component/Component.h"
+#include "../../Component/Component.h"
 
 void ComponentDrawMap::ExecuteDraw() const
 {

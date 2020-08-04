@@ -5,7 +5,7 @@
 #include <memory>
 #include <string>
 #include <map>
-#include "../ComponentDrawMap/ComponentDrawMap.h"
+#include "ComponentDrawMap/ComponentDrawMap.h"
 
 class Component;
 
@@ -29,7 +29,7 @@ public:
 private:
 
 	static std::list<std::shared_ptr<Component>> m_addComponents;
-	static std::list<std::shared_ptr<Component>> m_components;
+	static std::list<std::shared_ptr<Component>> m_components; // TODO: ƒNƒ‰ƒX•ª‚¯
 
 	// —Dæ“x‚ğ‚Â‚¯‚Ä•`‰æŠÖ”‚ğŒÄ‚Ô‚½‚ß‚Ì‚à‚Ì
 	static ComponentDrawMap m_drawMap;

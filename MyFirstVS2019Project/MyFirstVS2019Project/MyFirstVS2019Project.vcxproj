@@ -142,7 +142,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CloneObject\CloneObject.cpp" />
-    <ClCompile Include="ComponentDrawMap\ComponentDrawMap.cpp" />
+    <ClCompile Include="ComponentManager\ComponentDrawMap\ComponentDrawMap.cpp" />
     <ClCompile Include="ComponentManager\ComponentManager.cpp" />
     <ClCompile Include="Component\Component.cpp" />
     <ClCompile Include="DestroyObject\DestroyObject.cpp" />
@@ -161,7 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CloneObject\CloneObject.h" />
-    <ClInclude Include="ComponentDrawMap\ComponentDrawMap.h" />
+    <ClInclude Include="ComponentManager\ComponentDrawMap\ComponentDrawMap.h" />
     <ClInclude Include="ComponentManager\ComponentManager.h" />
     <ClInclude Include="Component\Component.h" />
     <ClInclude Include="DestroyObject\DestroyObject.h" />
