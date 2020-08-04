@@ -6,6 +6,7 @@
 #include <string>
 #include <map>
 #include "ComponentDrawMap/ComponentDrawMap.h"
+#include "ComponentMainList/ComponentMainList.h"
 
 class Component;
 
@@ -29,7 +30,9 @@ public:
 private:
 
 	static std::list<std::shared_ptr<Component>> m_addComponents;
-	static std::list<std::shared_ptr<Component>> m_components; // TODO: クラス分け
+
+	// コンポーネントをメインで管理するためのもの
+	static ComponentMainList m_mainList;
 
 	// 優先度をつけて描画関数を呼ぶためのもの
 	static ComponentDrawMap m_drawMap;
