@@ -18,6 +18,7 @@ public:
 	virtual void Update() {}
 	virtual void Draw() {}
 	virtual void HandleMessage(const std::string& message) {}
+	virtual void OnCollide(const std::weak_ptr<GameObject>& other) {}
 
 public:
 

@@ -22,3 +22,8 @@ void TestOutput::Draw()
 {
 	std::cout << GetGameObject().lock()->GetName() << " Draw" << std::endl;
 }
+
+void TestOutput::OnCollide(const std::weak_ptr<GameObject>& other)
+{
+	std::cout << GetGameObject().lock()->GetName() << "OnCollide" << std::endl;
+}

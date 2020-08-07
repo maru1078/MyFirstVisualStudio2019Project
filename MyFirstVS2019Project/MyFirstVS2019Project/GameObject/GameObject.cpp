@@ -53,3 +53,11 @@ void GameObject::SendMessage(const std::string& message)
 		component.lock()->HandleMessage(message);
 	}
 }
+
+void GameObject::OnCollideAll(const std::weak_ptr<GameObject>& other)
+{
+	for (const auto& component : m_components)
+	{
+		component.lock()->OnCollide(other);
+	}
+}

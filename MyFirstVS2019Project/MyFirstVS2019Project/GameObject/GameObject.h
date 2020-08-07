@@ -31,6 +31,8 @@ public:
 
 	void SendMessage(const std::string& message);
 
+	void OnCollideAll(const std::weak_ptr<GameObject>& other);
+
 private:
 
 	std::string m_name;

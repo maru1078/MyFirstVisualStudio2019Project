@@ -42,6 +42,10 @@ void Game::Run()
 
 		std::cout << std::endl;
 
+		ComponentManager::Collide();
+
+		std::cout << std::endl;
+
 		// Ž€–Sƒtƒ‰ƒO‚ª—§‚Á‚½‚à‚Ì‚Ííœ
 		ComponentManager::RemoveDeadComponent();
 		GameObjectManager::RemoveDeadGameObject();

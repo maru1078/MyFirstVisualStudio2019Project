@@ -6,6 +6,7 @@
 #include "../DestroyObject/DestroyObject.h"
 #include "../CloneObject/CloneObject.h"
 #include "../GameObjectCreator/GameObjectCreator.h"
+#include "../Collider/Collider.h"
 
 void MainScene::Start()
 {
@@ -15,6 +16,7 @@ void MainScene::Start()
 		gameObject.lock()->CreateComponent<TestOutput>(1.0f);
 		gameObject.lock()->CreateComponent<DestroyObject>("ObjectB");
 		gameObject.lock()->CreateComponent<CloneObject>(2);
+		gameObject.lock()->CreateComponent<Collider>(1);
 	}
 
 	// ゲーム終了処理などを行うオブジェクトは別にしておく

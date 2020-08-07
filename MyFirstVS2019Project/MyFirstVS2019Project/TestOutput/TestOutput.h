@@ -12,6 +12,7 @@ public:
 	virtual std::weak_ptr<Component> CloneComponent() const override;
 	virtual void Update() override;
 	virtual void Draw() override;
+	virtual void OnCollide(const std::weak_ptr<GameObject>& other) override;
 };
 
 #endif // !TEST_OUTPUT_H_

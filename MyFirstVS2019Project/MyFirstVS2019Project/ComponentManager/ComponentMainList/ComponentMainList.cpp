@@ -14,17 +14,6 @@ void ComponentMainList::RemoveDeadComponent()
         });
 }
 
-void ComponentMainList::ExecuteUpdate() const
-{
-    for (const auto& component : m_components)
-    {
-        // 追加されたうえで削除されてるかどうかの確認のため、今はコメント化。
-        //if (component->IsDead()) continue;
-
-        component->Update();
-    }
-}
-
 void ComponentMainList::ExecuteInput(const std::string& inputStr) const
 {
     for (const auto& component : m_components)

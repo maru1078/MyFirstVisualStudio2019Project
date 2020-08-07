@@ -9,6 +9,7 @@
 #include "ComponentMainList/ComponentMainList.h"
 #include "ComponentUpdateMap/ComponentUpdateMap.h"
 #include "UpdatePriorityList/UpdatePriorityList.h"
+#include "ColliderList/ColliderList.h"
 
 class Component;
 
@@ -21,6 +22,7 @@ public:
 
 	static void Update();
 	static void Draw();
+	static void Collide(); // 衝突判定を行う
 
 	static void SendInputStr(const std::string& inputStr);
 
@@ -47,6 +49,9 @@ private:
 
 	// 優先度をつけて描画関数を呼ぶためのもの
 	static ComponentDrawMap m_drawMap;
+
+	// 衝突判定専用のリスト
+	static ColliderList m_colliderList;
 };
 
 template<class T, class... Args>

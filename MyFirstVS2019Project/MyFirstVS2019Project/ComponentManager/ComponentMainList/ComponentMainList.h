@@ -13,7 +13,6 @@ public:
 
 	void Add(const std::shared_ptr<Component>& component);
 	void RemoveDeadComponent();
-	void ExecuteUpdate() const;
 	void ExecuteInput(const std::string& inputStr) const;
 
 private:

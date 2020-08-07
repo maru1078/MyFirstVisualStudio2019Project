@@ -142,6 +142,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CloneObject\CloneObject.cpp" />
+    <ClCompile Include="Collider\Collider.cpp" />
+    <ClCompile Include="ComponentManager\ColliderList\ColliderList.cpp" />
     <ClCompile Include="ComponentManager\ComponentDrawMap\ComponentDrawMap.cpp" />
     <ClCompile Include="ComponentManager\ComponentMainList\ComponentMainList.cpp" />
     <ClCompile Include="ComponentManager\ComponentManager.cpp" />
@@ -163,6 +165,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CloneObject\CloneObject.h" />
+    <ClInclude Include="Collider\Collider.h" />
+    <ClInclude Include="ComponentManager\ColliderList\ColliderList.h" />
     <ClInclude Include="ComponentManager\ComponentDrawMap\ComponentDrawMap.h" />
     <ClInclude Include="ComponentManager\ComponentMainList\ComponentMainList.h" />
     <ClInclude Include="ComponentManager\ComponentManager.h" />
