@@ -18,6 +18,10 @@ public:
 	void ExecuteIsCollide() const;
 	void AddCollisionGroupPair(int first, int second);
 
+private: 
+
+	bool CheckCollisionPair(int group1, int group2) const;
+
 private:
 
 	std::forward_list<std::weak_ptr<Collider>> m_colliderList;

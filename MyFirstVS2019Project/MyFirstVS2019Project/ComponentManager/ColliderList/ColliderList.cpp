@@ -26,6 +26,8 @@ void ColliderList::RemoveDeadComponent()
 
 void ColliderList::ExecuteIsCollide() const
 {
+	// メリット：衝突判定の組み合わせを簡単に変更できる
+	// デメリット：ペア全体を見るから巡回にかかるコストが高い。
 	for (auto colliderItrA = m_colliderList.begin(); colliderItrA != m_colliderList.end(); ++colliderItrA)
 	{
 		for (auto colliderItrB = std::next(colliderItrA); colliderItrB != m_colliderList.end(); ++colliderItrB)
@@ -34,31 +36,16 @@ void ColliderList::ExecuteIsCollide() const
 			if ((*colliderItrA).lock()->GetGameObject().lock() == (*colliderItrB).lock()->GetGameObject().lock()) continue;
 
 			// コンポーネントまたはゲームオブジェクトの死亡フラグが立ってたらスキップ
+			// 「コンポーネントが死んでいるか」ではなく、「コンポーネントがアクティブ状態か」のほうがいいかも
 			if ((*colliderItrA).lock()->IsDead() ||
 				(*colliderItrB).lock()->IsDead() ||
 				(*colliderItrA).lock()->GetGameObject().lock()->IsDead() ||
 				(*colliderItrB).lock()->GetGameObject().lock()->IsDead()) continue;
 
-			bool isSkip{ true };
-
-			for (const auto& pair : m_groupArray)
+			if (!CheckCollisionPair((*colliderItrA).lock()->GetCollisionGroup(), (*colliderItrB).lock()->GetCollisionGroup()))
 			{
-				// 衝突判定ペアに一致していたら抜ける
-				if (pair.first == (*colliderItrA).lock()->GetCollisionGroup() &&
-					pair.second == (*colliderItrB).lock()->GetCollisionGroup())
-				{
-					isSkip = false;
-					break;
-				}
-				else if (pair.first == (*colliderItrB).lock()->GetCollisionGroup() &&
-					     pair.second == (*colliderItrA).lock()->GetCollisionGroup())
-				{
-					isSkip = false;
-					break;
-				}
+				continue;
 			}
-
-			if (isSkip) continue;
 
 			// 衝突していたら
 			if ((*colliderItrA).lock()->IsCollide(*colliderItrB))
@@ -74,4 +61,24 @@ void ColliderList::ExecuteIsCollide() const
 void ColliderList::AddCollisionGroupPair(int first, int second)
 {
 	m_groupArray.emplace_back(std::make_pair(first, second));
+}
+
+bool ColliderList::CheckCollisionPair(int group1, int group2) const
+{
+	for (const auto& pair : m_groupArray)
+	{
+		// 衝突判定ペアに一致していたら抜ける
+		if (pair.first == group1 &&
+			pair.second == group2)
+		{
+			return true;
+		}
+		else if (pair.first == group2 &&
+			     pair.second == group1)
+		{
+			return true;
+		}
+	}
+
+	return false;
 }
