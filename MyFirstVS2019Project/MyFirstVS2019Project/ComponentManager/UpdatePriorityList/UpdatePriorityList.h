@@ -5,8 +5,6 @@
 #include <typeindex>
 #include <memory>
 
-class Component;
-
 class UpdatePriorityList
 {
 public:
