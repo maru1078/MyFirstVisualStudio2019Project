@@ -26,6 +26,7 @@ void ComponentManager::RemoveDeadComponent()
     m_mainList.RemoveDeadComponent();
     m_updateMap.RemoveDeadComponent();
     m_drawMap.RemoveDeadComponent();
+    m_colliderList.RemoveDeadComponent();
 }
 
 void ComponentManager::Update()
