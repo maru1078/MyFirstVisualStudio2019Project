@@ -24,6 +24,7 @@ void MainScene::Start()
 		auto gameObject = GameObjectManager::CreateGameObject("GameController");
 		gameObject.lock()->CreateComponent<GameTerminator>("end");
 		gameObject.lock()->CreateComponent<GameObjectCreator>("add", '_');
+		gameObject.lock()->CreateComponent<Collider>(2);
 	}
 }
 

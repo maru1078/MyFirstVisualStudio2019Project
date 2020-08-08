@@ -17,6 +17,7 @@ void Game::Run()
 	SceneManager::CreateCurrentScene<TitleScene>();
 
 	ComponentManager::AddUpdatePriority<TestOutput>(-1.0f);
+	ComponentManager::AddCollisionGroupPair(1, 2);
 
 	std::cout << "プログラム開始\n" << std::endl;
 

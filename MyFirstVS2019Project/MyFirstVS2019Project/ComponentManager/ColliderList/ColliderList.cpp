@@ -26,32 +26,52 @@ void ColliderList::RemoveDeadComponent()
 
 void ColliderList::ExecuteIsCollide() const
 {
-	for (auto i = m_colliderList.begin(); i != m_colliderList.end(); ++i)
+	for (auto colliderItrA = m_colliderList.begin(); colliderItrA != m_colliderList.end(); ++colliderItrA)
 	{
-		for (auto j = std::next(i); j != m_colliderList.end(); ++j)
+		for (auto colliderItrB = std::next(colliderItrA); colliderItrB != m_colliderList.end(); ++colliderItrB)
 		{
 			// 同一のゲームオブジェクトにコンポーネントがついてる場合スキップ
-			if ((*i).lock()->GetGameObject().lock() == (*j).lock()->GetGameObject().lock()) continue;
+			if ((*colliderItrA).lock()->GetGameObject().lock() == (*colliderItrB).lock()->GetGameObject().lock()) continue;
 
 			// コンポーネントまたはゲームオブジェクトの死亡フラグが立ってたらスキップ
-			if ((*i).lock()->IsDead() ||
-				(*j).lock()->IsDead() ||
-				(*i).lock()->GetGameObject().lock()->IsDead() ||
-				(*j).lock()->GetGameObject().lock()->IsDead()) continue;
+			if ((*colliderItrA).lock()->IsDead() ||
+				(*colliderItrB).lock()->IsDead() ||
+				(*colliderItrA).lock()->GetGameObject().lock()->IsDead() ||
+				(*colliderItrB).lock()->GetGameObject().lock()->IsDead()) continue;
 
-			// 衝突グループが一致していなかったらスキップ
-			if ((*i).lock()->GetCollisionGroup() != (*j).lock()->GetCollisionGroup())
+			bool isSkip{ true };
+
+			for (const auto& pair : m_groupArray)
 			{
-				continue;
+				// 衝突判定ペアに一致していたら抜ける
+				if (pair.first == (*colliderItrA).lock()->GetCollisionGroup() &&
+					pair.second == (*colliderItrB).lock()->GetCollisionGroup())
+				{
+					isSkip = false;
+					break;
+				}
+				else if (pair.first == (*colliderItrB).lock()->GetCollisionGroup() &&
+					     pair.second == (*colliderItrA).lock()->GetCollisionGroup())
+				{
+					isSkip = false;
+					break;
+				}
 			}
 
+			if (isSkip) continue;
+
 			// 衝突していたら
-			if ((*i).lock()->IsCollide(*j))
+			if ((*colliderItrA).lock()->IsCollide(*colliderItrB))
 			{
 				// OnCollideを呼ぶ
-				(*i).lock()->GetGameObject().lock()->OnCollideAll((*j).lock()->GetGameObject());
-				(*j).lock()->GetGameObject().lock()->OnCollideAll((*i).lock()->GetGameObject());
+				(*colliderItrA).lock()->GetGameObject().lock()->OnCollideAll((*colliderItrB).lock()->GetGameObject());
+				(*colliderItrB).lock()->GetGameObject().lock()->OnCollideAll((*colliderItrA).lock()->GetGameObject());
 			}
 		}
 	}
+}
+
+void ColliderList::AddCollisionGroupPair(int first, int second)
+{
+	m_groupArray.emplace_back(std::make_pair(first, second));
 }

@@ -47,3 +47,8 @@ void ComponentManager::SendInputStr(const std::string& inputStr)
 {
     m_mainList.ExecuteInput(inputStr);
 }
+
+void ComponentManager::AddCollisionGroupPair(int first, int second)
+{
+    m_colliderList.AddCollisionGroupPair(first, second);
+}

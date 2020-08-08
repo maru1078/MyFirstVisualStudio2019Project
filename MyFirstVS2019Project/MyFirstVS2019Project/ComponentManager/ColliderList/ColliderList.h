@@ -3,6 +3,8 @@
 
 #include <forward_list>
 #include <memory>
+#include <vector>
+#include <utility>
 
 class Component;
 class Collider;
@@ -14,10 +16,12 @@ public:
 	void CheckAndAdd(const std::weak_ptr<Component>& component);
 	void RemoveDeadComponent();
 	void ExecuteIsCollide() const;
+	void AddCollisionGroupPair(int first, int second);
 
 private:
 
 	std::forward_list<std::weak_ptr<Collider>> m_colliderList;
+	std::vector<std::pair<int, int>> m_groupArray;
 };
 
 #endif // !COLLIDER_LIST_H_

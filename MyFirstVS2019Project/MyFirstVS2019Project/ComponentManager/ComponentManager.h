@@ -34,6 +34,8 @@ public:
 	template<class T>
 	static void AddUpdatePriority(float priority);
 
+	static void AddCollisionGroupPair(int first, int second);
+
 private:
 
 	static std::unordered_multimap<float, std::shared_ptr<Component>> m_addComponents;
